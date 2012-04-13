@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Model</title>
+
+    <!-- Le styles -->
+    <link href="../lib/css/bootstrap.css" rel="stylesheet">
+    <link href="../lib/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="../lib/css/model.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+  </head>
+
+  <body>
+    <div class="navbar">
+      <div class="navbar-inner">
+	<div class="container">
+	  <div>
+	    <a class="brand" href="">Neighbors</a>
+	    
+	    <ul class="nav">
+	      <li><a data-toggle="modal" href="#corpora" id="selectCorpora">Select Corpora</a></li>
+	      <li><a data-toggle="modal" href="#models" id="selectModels">Select Models</a></li>
+	    </ul>
+	    
+	    <form action="" class="navbar-search" id="search">
+	      <input id="searchTerm" type="text" class="search-query" placeholder="Search for a term...">
+	    </form>
+	  </div>
+	</div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+	
+	<!-- Begin "Select Corpora" modal -->
+	<div class="modal hide" id="corpora" style="display: none;">
+	  <div class="modal-body">
+	    <form class="form-horizontal">
+	      <fieldset>
+		<legend>Select Corpora</legend>
+		<div class="control-group">
+		  <label class="control-label" for="corporaSelect">Corpora</label>
+		  <div class="controls">
+		    <select class="span4" multiple="multiple" id="corporaSelect">
+		    </select>
+		  </div>
+		</div>
+		<div class="form-actions">
+		  <button id="corporaSubmit" type="submit" class="btn btn-primary">Submit</button>
+		  <button class="btn">Cancel</button>
+		</div>
+	      </fieldset>
+	    </form>
+	  </div>
+	</div>
+	<!-- End "Select Corpora" modal -->
+
+	<!-- Begin "Select Models" modal -->
+	<div class="modal" id="models" style="display: none;">
+	  <div class="modal-body">
+	    <form class="form-horizontal">
+	      <fieldset>
+		<legend>Select Models</legend>
+		<div class="control-group">
+		  <label class="control-label" for="modelsSelect">Models</label>
+		  <div class="controls">
+		    <select class="span4" multiple="multiple" id="modelsSelect">
+		    </select>
+		  </div>
+		</div>
+		<div class="form-actions">
+		  <button id="modelsSubmit" type="submit" class="btn btn-primary">Submit</button>
+		  <button class="btn">Cancel</button>
+		</div>
+	      </fieldset>
+	    </form>
+	  </div>
+	</div>
+	<!-- End "Select Models" modal -->
+
+	<div class="well span6 offset3">
+	  <h2>term</h2>
+
+	  <hr />
+
+	  <table class="table table-condensed" id="models">
+	    <thead>
+	      <tr>
+		<th>Model 1</th>
+		<th>Model 2</th>
+		<th>Model 3</th>
+	      </tr>
+	    </thead>
+	    <tbody>
+	      <tr>
+		<td>
+		  <table class="table table-striped table-condensed" id="context">
+		    <thead>
+		      <tr>
+			<th>Related Terms</th>
+			<th>Similarity</th>
+		      </tr>
+		    </thead>
+		    <tbody>
+		      <tr>
+			<td><a href="">foo</a></td>
+			<td>bar</td>
+		      </tr>
+		      <tr>
+			<td><a href="">foo</a></td>
+			<td>bar</td>
+		      </tr>
+		      <tr>
+			<td><a href="">foo</a></td>
+			<td>bar</td>
+		      </tr>
+		    </tbody>
+		  </table>
+		</td>
+		<td>
+		  <table class="table table-striped table-condensed" id="order">
+		    <thead>
+		      <tr>
+			<th>Related Terms</th>
+			<th>Similarity</th>
+		      </tr>
+		    </thead>
+		    <tbody>
+		      <tr>
+			<td><a href="">foo</a></td>
+			<td>bar</td>
+		      </tr>
+		      <tr>
+			<td><a href="">foo</a></td>
+			<td>bar</td>
+		      </tr>
+		      <tr>
+			<td><a href="">foo</a></td>
+			<td>bar</td>
+		      </tr>
+		    </tbody>
+		  </table>
+		</td>
+		<td>
+		  <table class="table table-striped table-condensed" id="composite">
+		    <thead>
+		      <tr>
+			<th>Related Terms</th>
+			<th>Similarity</th>
+		      </tr>
+		    </thead>
+		    <tbody>
+		      <tr>
+			<td><a href="">foo</a></td>
+			<td>bar</td>
+		      </tr>
+		      <tr>
+			<td><a href="">foo</a></td>
+			<td>bar</td>
+		      </tr>
+		      <tr>
+			<td><a href="">foo</a></td>
+			<td>bar</td>
+		      </tr>
+		    </tbody>
+		  </table>
+		</td>
+	      </tr>
+	    </tbody>
+	  </table>
+	</div>
+      </div>
+    </div>
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="https://raw.github.com/twitter/bootstrap/master/js/bootstrap-modal.js"></script>
+    <script src="../lib/js/inphosemantics-directory.js"></script>
+    <script src="../lib/js/neighbors.js"></script>
+  </body>
+</html>
