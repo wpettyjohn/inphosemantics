@@ -1,4 +1,4 @@
-This is to develop a web-interface to remotely access the nearest neighbors data over varying corpora, models, and terms. This interface consists of some number of search boxes with associated columns displaying related terms and their respective similarty to the given search term. The data presented in these columns is retrieved from a JSON object of the generic form below:
+This is to develop a web-interface to remotely access term relatedness data over varying corpora, models, and terms. This interface consists of some number of search boxes with associated columns displaying related terms and their respective similarty to the given search term. The data presented in these columns is retrieved from a JSON object of the generic form below:
 
 
 {search-term:
