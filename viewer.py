@@ -8,7 +8,7 @@ def serve(port):
     
     httpd = SocketServer.TCPServer(("", port), Handler)
     
-    print "To view taxonomies, browse to http://localhost:" + str(port)
+    print "To view the inphosemantics interface, browse to http://localhost:" + str(port)
     httpd.serve_forever()
 
 if __name__ == "__main__":
