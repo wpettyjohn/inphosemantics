@@ -1,0 +1,19 @@
+This is to develop a web-interface to remotely access the neighbors.py file.
+This interface consists of some number of search boxes with associated columns
+displaying related terms and their respective similarty to the given search term.
+The data presented in these columns is retrieved from a JSON object of the generic form below:
+===============================================================================================
+
+{search-term:
+	[{related-term_1:similarity_1},
+	 {related-term_2:similarity_2},
+	 ...,
+	 {related-term_n-1:similarity_n-1},
+	 {related-term_n:similarity_n},
+	]
+}
+
+===============================================================================================
+Currently, this interface is implemented to run solely on the SEP-BEAGLE lexicon/model used in
+the neighbors.py file; however, the ultimate goal is to generalize this interface to run on any
+lexicon/model capable of returning a JSON object formatted as described above. 
