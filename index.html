@@ -26,43 +26,15 @@
 	    
 	    <ul class="nav">
 	      <li class="divider-vertical"></li>
-	      <li><a data-toggle="modal" href="#corpora" id="selectCorpora">Add Corpus</a></li>
-	      <li class="divider-vertical"></li>
-	      <li><a data-toggle="modal" href="#models" id="selectModels">Add Model</a></li>
+	      <li><a data-toggle="modal" href="#selectionModal" id="makeSelections">Make Selections</a></li>
 	      <li class="divider-vertical"></li>
 	    </ul>
-	    
-	    <form action="" class="navbar-search" id="search">
-	      <input id="searchTerm" type="text" class="search-query" placeholder="Add a search phrase...">
-	    </form>
 	  </div>
 	</div>
       </div>
     </div>
     <div class="container">
       <div class="row">
-	<div class="span3 well">
-	  <h3>Current Selections:</h3>
-	  
-	  <br />
-
-	  <strong>Corpora</strong>
-	  <ul class="unstyled" id="currentCorpora">
-	  </ul>
-
-	  <strong>Models</strong>
-	  <ul class="unstyled" id="currentModels">
-	  </ul>
-
-	  <strong>Phrases</strong>
-	  <ul class="unstyled" id="currentPhrases">
-	  </ul>
-	  
-	  <hr />
-	  <button class="btn btn-primary" id="querySubmit">Submit Query</button>
-	  <button class="btn" id="queryReset">Reset</button>
-	</div>
-
 	<br />
 
 	<table class="table" id="root" style="display: none;">
@@ -71,52 +43,49 @@
 	    </tr>
 	  </tbody>
 	</table>
-	
-	<!-- Begin "Select Corpora" modal -->
-	<div class="modal hide" id="corpora" style="display: none;">
-	  <div class="modal-body">
-	    <form class="form-horizontal">
-	      <fieldset>
-		<legend>Add Corpus</legend>
-		<div class="control-group">
-		  <label class="control-label" for="corporaSelect">Corpora</label>
-		  <div class="controls">
-		    <select class="span4" id="corporaSelect">
-		    </select>
-		  </div>
-		</div>
-		<div class="form-actions">
-		  <button id="corporaSubmit" type="submit" class="btn btn-primary">Submit</button>
-		  <button class="btn">Cancel</button>
-		</div>
-	      </fieldset>
-	    </form>
-	  </div>
-	</div>
-	<!-- End "Select Corpora" modal -->
 
-	<!-- Begin "Select Models" modal -->
-	<div class="modal" id="models" style="display: none;">
+	<!-- Begin "Make Selections" modal -->
+	<div class="modal" id="selectionModal" style="display: none; width auto;">
+	  <div class="modal-header">
+	    <a class="close" data-dismiss="modal">&times;</a>
+	    <h3>Make Selections</h3>
+	  </div>
 	  <div class="modal-body">
-	    <form class="form-horizontal">
-	      <fieldset>
-		<legend>Add Model</legend>
-		<div class="control-group">
-		  <label class="control-label" for="modelsSelect">Models</label>
-		  <div class="controls">
-		    <select class="span4" id="modelsSelect">
-		    </select>
-		  </div>
-		</div>
-		<div class="form-actions">
-		  <button id="modelsSubmit" type="submit" class="btn btn-primary">Submit</button>
-		  <button class="btn">Cancel</button>
-		</div>
-	      </fieldset>
+	    <form class="form-inline">
+	      <select class="span4" id="corporaSelect">
+	      </select>
+	      <button id="corporaSubmit" type="submit" class="btn">Add Corpus</button>
 	    </form>
+	    <form class="form-inline">
+	      <select class="span4" id="modelsSelect">
+	      </select>
+	      <button id="modelsSubmit" type="submit" class="btn">Add Model</button>
+	    </form>
+	    <form class="form-search" id="search">
+	      <input id="searchTerm" type="text" class="search-query span3" placeholder="Add a search phrase...">
+	      <button id="phraseSubmit" type="submit" class="btn">Add Phrase</button>
+	    </form>
+
+	    <hr />
+	  
+	    <strong>Corpora</strong>
+	    <ul class="unstyled" id="currentCorpora">
+	    </ul>
+
+	    <strong>Models</strong>
+	    <ul class="unstyled" id="currentModels">
+	    </ul>
+
+	    <strong>Phrases</strong>
+	    <ul class="unstyled" id="currentPhrases">
+	    </ul>
+	  </div>
+	  <div class="modal-footer">
+	    <button class="btn btn-primary" id="querySubmit">Submit Query</button>
+	    <button class="btn" id="queryReset">Reset</button>
 	  </div>
 	</div>
-	<!-- End "Select Models" modal -->
+	<!-- End "Make Selections" modal -->
 
       </div>
     </div>
