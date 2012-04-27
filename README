@@ -1,14 +1,10 @@
 This is to develop a web-interface to remotely access term relatedness data over varying corpora and models. The data is retrieved from a JSON object of the generic form below:
 
-
-{search-term:
-	[{related-term_1:similarity_1},
-	 {related-term_2:similarity_2},
-	 ...,
-	 {related-term_n-1:similarity_n-1},
-	 {related-term_n:similarity_n},
-	]
-}
-
+[{related-term_1:similarity_1},
+ {related-term_2:similarity_2},
+ ...,
+ {related-term_n-1:similarity_n-1},
+ {related-term_n:similarity_n}
+]
 
 Currently, this interface is implemented to run solely on the SEP-BEAGLE lexicon/model; however, the ultimate goal is to generalize this interface to run on any lexicon/model combination. 
