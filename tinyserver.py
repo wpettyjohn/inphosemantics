@@ -18,6 +18,7 @@ class TestHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
 
         # Assumes the incoming request is a stringified json Object.
         # The keys are "corpus", "model", "phrase"
+        print data_string
         params = json.loads(data_string)
         corpus = params['corpus'].split('.')[0]
         corpus_param = params['corpus'].split('.')[1]
@@ -29,14 +30,13 @@ class TestHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
         term = corpus[0] + corpus_param[0] + model[0] + model_param[0] + '-' + query
         
         result = [{ term: ((1.0 / len(term)) - (i * .01)) } for i in xrange(n)]
-        result = json.dumps(result)
 
         server_lag = random.randint(1,5)
         print 'Simulated server lag:', server_lag
         time.sleep(server_lag)
         print 'Result', result
 
-        self.wfile.write(result)
+        json.dump(result, self.wfile)
 
 
 def start_server():
