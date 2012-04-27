@@ -2,36 +2,45 @@
 
 import BaseHTTPServer
 import SimpleHTTPServer
-import json
 import time
+import json
+import random
 
 class TestHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
-    # the test eample handler    
+    """The test example handler."""
 
     def do_POST(self):
-        # handle a post request by returning the number to some power
-        content_length = int(self.headers.getheaders('content-length')[0])
-        print 'Content Length:', content_length
-        json_string = self.rfile.read(content_length)
-        print 'JSON String:', json_string
-        json_obj = json.loads(json_string)
-        print 'JSON Obj:', json_obj
-        """
-        base_string = data_string[0]
-        exponent_string = data_string[2]
-        print 'Base String:', base_string
-        print 'Exponent String:', exponent_string
-        try:
-            result = int(base_string) ** int(exponent_string)
-            # time.sleep(2)
-        except:
-            result = 'error'
-        print 'Result:', result
+        """Handle a post request by returning the square of the number."""
+
+        length = int(self.headers.getheader('content-length'))
+
+        data_string = self.rfile.read(length)
+
+        # Assumes the incoming request is a stringified json Object.
+        # The keys are "corpus", "model", "phrase"
+        params = json.loads(data_string)
+        corpus = params['corpus'].split('.')[0]
+        corpus_param = params['corpus'].split('.')[1]
+        model = params['model'].split('.')[0]
+        model_param = params['model'].split('.')[1]
+        query = params['phrase']
+        n = 20
+
+        term = corpus[0] + corpus_param[0] + model[0] + model_param[0] + '-' + query
+        
+        result = [{ term: ((1.0 / len(term)) - (i * .01)) } for i in xrange(n)]
+        result = json.dumps(result)
+
+        server_lag = random.randint(1,5)
+        print 'Simulated server lag:', server_lag
+        time.sleep(server_lag)
+        print 'Result', result
+
         self.wfile.write(result)
-        """
+
 
 def start_server():
-    # start the server
+    """Start the server."""
     server_address = ("", 8080)
     server = BaseHTTPServer.HTTPServer(server_address, TestHandler)
     server.serve_forever()
